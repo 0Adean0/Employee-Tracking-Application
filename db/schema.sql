@@ -1,0 +1,11 @@
+DROP DATABASE IF EXISTS corp_db;
+CREATE DATABASE corp_db;
+
+USE corp_db
+SELECT DATABASE();
+
+CREATE TABLE Department(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR (30) NOT NULL);
+
+)

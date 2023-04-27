@@ -21,12 +21,37 @@ const init = () => {
     .then((response) => {
         const { action_items } = response
         switch (action_items) {
-            case ("engageAllDepartments"):
+            case ("engage All Departments"):
                 engageAllDepartments()
                 setTimeout(init, 1000)
-            break
+            break;
+            case ("engage All Titles "):
+                engageAllTitles()
+                setTimeout(init, 1000)
+            break;
+            case ("engage All Employees "):
+                engageAllEmployees()
+                setTimeout(init, 1000)
+            break;
+            case ("engage ADD Department"):
+                engageAddDepartment()
+                setTimeout(init, 1000)
+            break;
+            case ("engage ADD Title"):
+                engageAddTitle()
+                setTimeout(init, 1000)
+            break;
+            case ("engage ADD Employee"):
+                engageAddEmployee()
+                setTimeout(init, 1000)
+            break;
+            case ("engage Update Employee"):
+                engageUpdateEmployee()
+                setTimeout(init, 1000)
+            break;
+            default:
+                return
         }
     })
-
 }
 init()

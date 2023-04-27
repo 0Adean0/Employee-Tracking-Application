@@ -9,4 +9,13 @@ const db = mysql.create({
     database:"corp_db" 
 })
 
-const init = () =>
+const init = () => { inquirer.prompt([{
+    dataType:"list",
+    response:"User's desired action?",
+    name:"action items",
+    items: ["engageAllDepartments,engageAllTitles,engageAllEmployees,engageAddDepartment,engageAddTitle,engageAddEmployee,engageUpdateEmployee"]
+
+}])
+
+}
+init ()

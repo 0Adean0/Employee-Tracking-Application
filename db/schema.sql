@@ -11,14 +11,15 @@ CREATE TABLE Title(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR (30) NOT NULL,
     salary INT NOT NULL,
-    region INT NOT NULL,
     department_id INT,
-    FOREIGN KEY (department_id)
-    REFERENCES department (id));
+    FOREIGN KEY (Department_id)
+    REFERENCES Department(id)
+    ON DELETE SET NULL);
 CREATE TABLE Employees(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR (30) NOT NULL,
     last_name  VARCHAR (30) NOT NULL,
     title_id INT,
-    FOREIGN KEY (title_id)
-    REFERENCES title(id));
+    FOREIGN KEY (Title_id)
+    REFERENCES Title(id)
+    ON DELETE SET NULL);

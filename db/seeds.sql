@@ -20,14 +20,14 @@ VALUES
     ('Barbarian',110000,5),
     ('Juggernaut',120000,5),
     ('Bard',300000,6);
-INSERT INTO Employees(first_name,last_name,title_id)
+INSERT INTO Employees(first_name,last_name,title_id,manager_id)
 VALUES 
-    ('Beans','McBeanington',1),
-    ('Marco','Dragonsack',5),
-    ('Domino','Roughbottle',3),
-    ('One-eye','Two-legs',3),
-    ('Mr','-M',6),
-    ('Bubbles','',5),
-    ('Lord','Jeff',2),
-    ('Grand Master','Carl-Sagen',1),
-    ('Emanuel','Wizzpoper',4);
+    ('Beans','McBeanington',1,'Watcher','1'),
+    ('Marco','Dragonsack',5,'Watcher','5'),
+    ('Domino','Roughbottle',3,'Watcher','3'),
+    ('One-eye','Two-legs',3,'Watcher','3'),
+    ('Mr','-M',6,'Watcher','6'),
+    ('Bubbles','',5'Watcher','5'),
+    ('Lord','Jeff',2,'Watcher','2'),
+    ('Grand Master','Carl-Sagen',1,'Watcher','1'),
+    ('Emanuel','Wizzpoper',4,'Watcher','4');

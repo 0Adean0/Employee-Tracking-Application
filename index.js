@@ -9,7 +9,7 @@ const db = mysql.createConnection({
     password: "Imfreezingmynutsoff**",
     database: "corp_db"
 },
-console.log(`Linked to corp_db Database.`))
+console.log(`Linked to corp_db database.`))
 
 const init = () => {
     inquirer.prompt([{

@@ -6,11 +6,7 @@ This projects main objective was to create an employee tracking (in this case D&
 ## Usage
 To best use this application, any given user can initiate the program by cloning the respository and opening an integrated terminal. Next, the user must input `node index.js` and follow any prompts to achieve their desired outcome. 
 
-[link to running application]()
-
-![Employee-Tracking-Application]()
-
 ## Credits
-w3 schools, class
+w3 schools, class, Leif, 
 ## License
 MIT License

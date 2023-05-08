@@ -1,4 +1,4 @@
-INSERT INTO Department (name)
+INSERT INTO department (name)
 VALUES
     ('Magic'),
     ('Hunting'),
@@ -6,7 +6,7 @@ VALUES
     ('Healing'),
     ('Frontline'),
     ('Music');
-INSERT INTO Title (title, salary,department_id)
+INSERT INTO title (title, salary,department_id)
 VALUES   
     ('Sorcerer', 100000,1),
     ('Warlock',165000,1),
@@ -20,14 +20,14 @@ VALUES
     ('Barbarian',110000,5),
     ('Juggernaut',120000,5),
     ('Bard',300000,6);
-INSERT INTO Employees(first_name,last_name,title_id,manager_id)
+INSERT INTO employees(first_name,last_name,title_id,manager_id)
 VALUES 
-    ('Beans','McBeanington',1,'Watcher','1'),
-    ('Marco','Dragonsack',5,'Watcher','5'),
-    ('Domino','Roughbottle',3,'Watcher','3'),
-    ('One-eye','Two-legs',3,'Watcher','3'),
-    ('Mr','-M',6,'Watcher','6'),
-    ('Bubbles','',5'Watcher','5'),
-    ('Lord','Jeff',2,'Watcher','2'),
-    ('Grand Master','Carl-Sagen',1,'Watcher','1'),
-    ('Emanuel','Wizzpoper',4,'Watcher','4');
+    ('Beans','McBeanington',1,NULL),
+    ('Marco','Dragonsack',5,1),
+    ('Domino','Roughbottle',3,2),
+    ('One-eye','Two-legs',3,3),
+    ('Mr','-M',6,1),
+    ('Bubbles','',5,3),
+    ('Lord','Jeff',2,NULL),
+    ('Grand Master','Carl-Sagen',1,3),
+    ('Emanuel','Wizzpoper',4,4);

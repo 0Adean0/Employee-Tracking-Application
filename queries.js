@@ -1,37 +1,41 @@
 const inquirer = require('inquirer')
 const mysql = require('mysql2')
 const table = require('console.table')
-
+console.log(mysql)
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'Imfreezingmynutsoff**',
-    database: 'corp_bd'
+    database: 'corp_db'
 },
     console.log(`Linked to corp_db database.`))
 
 const engageAllDepartments = () => {
-    db.query('Select name As Department From department', (err, result) => {
+    db.query('SELECT * FROM department', (err, result) => {
         if (err) {
+            console.log (err)
             throw err
         }
         console.table(result)
+        return result
     })
 }
 const engageAllTitles = () => {
-    db.query('Select title.title AS `Job Title`, title.salary AS `Posted Salary`, title.id AS `Title ID`, department.name AS `Department` FROM title LEFT JOIN department ON title.department_id = department.id ORDER BY department.name;', (err, result) => {
+    db.query('SELECT title.title AS `Job Title`, title.salary AS `Posted Salary`, title.id AS `Title ID`, department.name AS `Department` FROM title LEFT JOIN department ON title.department_id = department.id ORDER BY department.name;', (err, result) => {
         if (err) {
             console.log(err)
         }
         console.table(result)
+        return result
     })
 }
 const engageAllEmployees = () => {
-    db.query('Select employees.id AS `Employee ID`, employees.first_name AS `First Name`, employees.last_name AS `Last Name`, title.title AS `Job Title`, title.salary AS `Posted Salary`, department.name AS `Department, CONCAT(manager.first_name,"", manager.last_name) AS `Manager` FROM employees LEFT JOIN title ON employees.title_id = title.id LEFT JOIN department ON title.department_id = department.id LEFT JOIN employees manager ON manager.id = employees.manager_id;', (err, result) => {
+    db.query('SELECT employees.id AS `Employee ID`, employees.first_name AS `First Name`, employees.last_name AS `Last Name`, title.title AS `Job Title`, title.salary AS `Posted Salary`, department.name AS `Department`, CONCAT(manager.first_name,manager.last_name) AS `Manager` FROM employees LEFT JOIN title ON employees.title_id = title.id LEFT JOIN department ON title.department_id = department.id LEFT JOIN employees manager ON manager.id = employees.manager_id;', (err, result) => {
         if (err) {
             throw err
         }
         console.table(result)
+        return result
     })
 }
 const engageAddDepartment = () => {
@@ -88,7 +92,7 @@ inquirer.prompt([{
                 throw err
             }
             const departmentId = result[0].id
-            db.query(`INSERT INTO role (title,salary,department_id) VALUE (?,?,?)`, [titleName, salary, departmentId], (err, result) => {
+            db.query(`INSERT INTO title (title,salary,department_id) VALUE (?,?,?)`, [titleName, salary, departmentId], (err, result) => {
                 if (err) {
                     throw err
                 }
@@ -138,7 +142,7 @@ db.query(`SELECT * FROM role`, (err, result) => {
             const { firstName, lastName, title, manager } = response
             db.query(`SELECT id FROM title WHERE title =?`, [title], (err, result) => {
                 const titleId = result[0].id
-                db.query(`INSERT INTO employees (first_name, last_name, manager_id) VALUE(?,?,?,?)`, [firstName, lastName, titleId, null], (err, result) => {
+                db.query(`INSERT INTO employees (first_name, last_name,title_id, manager_id) VALUE(?,?,?,?)`, [firstName, lastName, titleId, null], (err, result) => {
                     if (err) {
                         throw err
                     }
